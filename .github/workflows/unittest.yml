@@ -13,9 +13,8 @@ permissions:
   contents: read
 
 jobs:
-  run_if:
-    if: startsWith(github.head_ref, 'feature/')
-    
+  build:
+
     runs-on: ubuntu-latest
 
     steps:
@@ -26,9 +25,9 @@ jobs:
         python-version: "3.8"
     - name: Install dependencies
       run: |
-        python3 -m pip install --upgrade pip
+        python -m pip install --upgrade pip
         pip3 install flake8 pytest
-        if [ -f requirements.txt ]; then pip3 install -r requirements.txt; fi
+        if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
     - name: Unit test 
       run: |
-        python3 -m pytest test/test_units.py
+        python -m pytest test/test_units.py
