@@ -1,0 +1,10 @@
+version: '3.7'
+
+services:
+  spark:
+    image: gcsmerger
+    build: .
+    volumes:
+      - ./src:/app/src
+    ports:
+      - "4050:4050"
