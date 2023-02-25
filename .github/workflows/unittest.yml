@@ -10,7 +10,7 @@ permissions:
 
 jobs:
   run_if:
-    if: startsWith(github.head_ref, 'feature/')
+    if: startsWith(github.ref_name, 'feature/')
 
     runs-on: ubuntu-latest
 
